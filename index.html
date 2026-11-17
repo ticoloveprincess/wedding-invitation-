@@ -73,7 +73,7 @@ let ed=false,AS=null,AR=null,UR=null,mOn=false,mUser=null,big=false;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const T=k=>`<span data-k="${k}" ${ed?'contenteditable':''}>${esc(S[k])}</span>`;
 const isP=k=>/^p\d+$/.test(k),get=k=>isP(k)?S.photos[+k.slice(1)]:S.im[k],set=(k,v)=>{isP(k)?S.photos[+k.slice(1)]=v:S.im[k]=v};
-const TH=u=>typeof u=='string'&&u.indexOf('./images/p')==0?u.replace('./images/p','./images/t/p'):u;
+const TH=u=>typeof u=='string'&&u.indexOf('./images/p')==0?u.replace('./images/p','./images/thumbs/p'):u;
 const SL=(k,c,t)=>{const u=get(k);const s=u?(isP(k)?TH(u):u):'';return `<div class="sl ${c||''}" data-p="${k}">${s?`<img src="${esc(s)}" alt="" loading="lazy" decoding="async">${ed?`<i data-x="${k}">×</i>`:''}`:(ed?(t||'+ 사진'):'')}</div>`};
 const ACC=['은행','계좌번호','예금주'];
 const tm=()=>{const m=/(오전|오후)\s*(\d+)시\s*(\d+)?/.exec(S.time);return m?[(+m[2]%12)+(m[1]=='오후'?12:0),+(m[3]||0)]:[0,0]};
