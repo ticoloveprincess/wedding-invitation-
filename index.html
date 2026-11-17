@@ -144,7 +144,7 @@ document.addEventListener('click',async e=>{const t=e.target,M=t.dataset.m;
  const p=t.closest('[data-p]');
  if(p){const k=p.dataset.p;
   if(ed){if(!AS)return alert('사진 업로드를 사용할 수 없습니다');const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=async()=>{if(!f.files[0])return;try{const r=await AS.upload(f.files[0]);set(k,r.url);collect();render()}catch(x){alert('업로드 실패')}};f.click()}
-  else if(get(k))openLB(k)}}
+  else if(get(k))openLB(k)}
 });
 document.addEventListener('pointerdown',e=>{if(e.target.id!='mus'&&!mOn&&mUser===null)tog(false)},{once:true});
 /* 직접 합성한 잔잔한 피아노 선율 (저작권 없음) */
